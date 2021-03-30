@@ -14,6 +14,7 @@ export const selectCollections = createSelector(
   [selectShop],
   (shop) => shop.collections
 );
+// added below code as we converted array to object by normalization
 
 export const selectCollectionsForPreview = createSelector(
   [selectCollections],
