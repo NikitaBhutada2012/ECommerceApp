@@ -6,8 +6,8 @@ import CollectionItem from "../collection-item/collection-item.component";
 import "./preview-collection.styles.scss";
 
 const PreviewCollection = ({ title, items, history, match, routeName }) => {
-  console.log("history :", history);
-  console.log("match :", match);
+  //console.log("history :", history);
+  // console.log("match :", match);
 
   return (
     <div className="collection-preview">

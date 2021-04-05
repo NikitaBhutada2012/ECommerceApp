@@ -6,6 +6,7 @@ import { selectCollection } from "../../redux/shop/shop.selector";
 import "./collection.styles.scss";
 
 const CollectionPage = ({ collection }) => {
+  //console.log("props are", collection);
   //console.log("collection:", collection);
   const { title, items } = collection;
 
@@ -24,5 +25,15 @@ const CollectionPage = ({ collection }) => {
 const mapStateToProps = (state, ownProps) => ({
   collection: selectCollection(ownProps.match.params.collectionId)(state),
 });
+
+// function mapStateToProps(state, ownProps) {
+//   console.log("ownProps is :", ownProps);
+//   // ownProps would look like { "id" : 123 }
+//   // const { id } = ownProps
+//   // const todo = getTodoById(state, id)
+
+//   // // component receives additionally:
+//   // return { todo, visibilityFilter }
+// }
 
 export default connect(mapStateToProps)(CollectionPage);

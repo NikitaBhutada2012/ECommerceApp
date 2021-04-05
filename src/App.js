@@ -34,42 +34,38 @@ class App extends React.Component {
   //this.setState({ currentUser: user });
   //console.log(user);
   componentDidMount() {
-    const { setCurrentUser } = this.props;
-    //below code to add collections to firebase one time
-
-    //    const { setCurrentUser, collectionsArray } = this.props;
-
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
-
-        // userRef.onSnapshot((snapShot) => {
-        //   this.setState({
-        //     currentUser: {
-        //       id: snapShot.id,
-        //       ...snapShot.data(),
-        //     },
-        //   });
-        // });
-
-        userRef.onSnapshot((snapShot) => {
-          setCurrentUser({
-            id: snapShot.id,
-            ...snapShot.data(),
-          });
-        });
-      }
-      //this.setState({ currentUser: userAuth });
-      setCurrentUser(userAuth);
-      // addCollectionAndDocuments(
-      //   "collections",
-      //   collectionsArray.map(({ title, items }) => ({ title, items }))
-      // );
-    });
+    // const { setCurrentUser } = this.props;
+    // //below code to add collections to firebase one time
+    // //    const { setCurrentUser, collectionsArray } = this.props;
+    // this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+    //   if (userAuth) {
+    //     const userRef = await createUserProfileDocument(userAuth);
+    //     // userRef.onSnapshot((snapShot) => {
+    //     //   this.setState({
+    //     //     currentUser: {
+    //     //       id: snapShot.id,
+    //     //       ...snapShot.data(),
+    //     //     },
+    //     //   });
+    //     // });
+    //     userRef.onSnapshot((snapShot) => {
+    //       setCurrentUser({
+    //         id: snapShot.id,
+    //         ...snapShot.data(),
+    //       });
+    //     });
+    //   }
+    //   //this.setState({ currentUser: userAuth });
+    //   setCurrentUser(userAuth);
+    //   // addCollectionAndDocuments(
+    //   //   "collections",
+    //   //   collectionsArray.map(({ title, items }) => ({ title, items }))
+    //   // );
+    // });
   }
 
   componentWillUnmount() {
-    console.log("inside unmount");
+    //console.log("inside unmount");
     this.unsubscribeFromAuth();
   }
 
